@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li id="toDo">
+          <a href="./ToDo">
+            <i class="tim-icons icon-check-2"></i>
+            <p>待辦事項</p>
+          </a>
+        </li>
+        <li id="heartbeatOptions">
+          <a href="./HeartbeatOptions">
+            <i class="tim-icons icon-heart-2"></i>
+            <p>心跳設定</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-panel">
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+      </div>
+    </footer>
+  </div>
+
+  <div class="navbar-wrapper" style="position: fixed; right: 25px; bottom: 25px; z-index: 999;">
+    <div class="navbar-toggle d-inline">
+      <button type="button" class="navbar-toggler" style="padding: 0px;">
+        <i class="tim-icons icon-bullet-list-67" style="color: white; font-size: 25px;" ></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<layout>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12"><label>到期日</label>
+                            <div class="form-group">
+                                <input name="expiryDate" class="form-control" angular-mydatepicker [(ngModel)]="toDo.expiryDate" 
+                                 [options]="DatePickerUtility.DatePickerOptions" #expiryDate="angular-mydatepicker" (click)="expiryDate.openCalendar()" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12"><label>描述</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" [(ngModel)]="toDo.description" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button (click)="save(toDo)" type="submit" class="btn btn-default" style="width:100%">新增</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12" *ngFor="let toDo of toDos; let i=index;">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12"><label>到期日</label>
+                            <div class="form-group">
+                                <input name="expiryDate" class="form-control" angular-mydatepicker [(ngModel)]="toDo.expiryDate" 
+                                 [options]="DatePickerUtility.DatePickerOptions" #expiryDate="angular-mydatepicker" (click)="expiryDate.openCalendar()" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12"><label>描述</label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" [(ngModel)]="toDo.description" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <button (click)="save(toDo)" type="submit" class="btn btn-default" style="width:100%">儲存</button>
+                          </div>
+                          <div class="col-lg-6 col-md-12">
+                            <button (click)="delete(toDo)" type="submit" class="btn btn-warning" style="width:100%">刪除</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</layout>
