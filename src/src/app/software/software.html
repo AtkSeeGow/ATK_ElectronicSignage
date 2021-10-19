@@ -1,0 +1,97 @@
+<layout>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">.NET Core</h5>
+          <h3 class="card-title">ElectronicSignage.Web</h3>
+        </div>
+        <div class="card-body">
+          <div class="typography-line">
+            <p>提供「客運到站時間」、「待辦事項」、「服務狀態」資料，並可使用網頁的方式進行維護</p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">appsettings.json</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="typography-line">
+                      <pre>
+{{ '{' }}
+  "TokenOptions": {{ '{' }}
+    "AllowedIssuer": "ATK_ElectronicSignage",
+    "AllowedAudience": "8176adab0f3f45808025f488153c91a1",
+    "SymmetricKey": "Lnzc4-FolP4VjZP4o2g_nMl-KURT5nF2GcRstkOu2uk"
+  {{ '}' }},
+  "MongoDBOptions": {{ '{' }}
+    "ConnectionString": "mongodb://localhost:27017/",
+    "CollectionName": "ATK_ElectronicSignage"
+  {{ '}' }},
+  "TransportOptions": {{ '{' }}
+    "Id": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+    "Key": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+    "GetBusStopsUrl": "https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/NearBy?$top=100&$spatialFilter=nearby(25.138749%2C%20121.71844%2C%20100)&$format=JSON",
+    "GetGetBusEstimateTimesUrl": "https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/NearBy?$top=100&$spatialFilter=nearby(25.138749%2C%20121.71844%2C%2050)&$format=JSON",
+    "StopIds": [ "270527", "292144", "193118" ]
+  {{ '}' }}
+{{ '}' }}
+                      </pre>
+                      <img src="assets/img/Windows 10-2021-08-20-16-58-45.png" />
+                      <p>&nbsp;</p>
+                      <img src="assets/img/Windows 10-2021-08-20-16-55-39.png" />
+                      <p>&nbsp;</p>
+                      <img src="assets/img/Windows 10-2021-08-20-16-58-32.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">Python</h5>
+          <h3 class="card-title">ElectronicSignage.Python</h3>
+        </div>
+        <div class="card-body">
+          <div class="typography-line">
+            <p>因應Raspberry Pi的效能限制，放棄使用網頁改採PyQt5進行顯示</p>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">config.py</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="typography-line">
+                      <pre>class Config():
+def __init__(self):
+    self.getGetBusEstimateTimesUrl = "http://localhost:5000/Api/Transport/GetBusEstimateTimes"
+    self.getToDosUrl = "http://localhost:5000/Api/ToDo/FetchBy"
+    self.getHeartbeatsUrl = "http://localhost:5000/Api/Heartbeat/GetStatus"
+    self.getTokenUrl = "http://localhost:5000/Api/Authentication/GenerateToken"
+    self.account = ""
+    self.password = ""
+    self.token = ""
+    self.fontFamily = "Noto Serif CJK TC Black"
+
+def getHeaders(self):
+    return {{ '{' }}'content-type': 'application/json', 'Authorization': self.token{{ '}' }}
+  </pre>
+                      <img src="assets/img/Ubuntu-2021-08-20-16-27-09.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</layout>
