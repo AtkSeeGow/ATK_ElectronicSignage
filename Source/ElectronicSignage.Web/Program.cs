@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using NLog.Web;
+using System.Net;
 
 namespace ElectronicSignage.Web
 {
@@ -17,9 +18,12 @@ namespace ElectronicSignage.Web
                 .UseNLog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseKestrel(opts =>
-                    {
-                        opts.ListenAnyIP(5000);
+                    webBuilder.UseKestrel(options => {
+                        options.Listen(IPAddress.Any, 8925);
+                        options.Listen(IPAddress.Any, 8926, listenOptions =>
+                        {
+                            listenOptions.UseHttps(@"/home/ubuntu/certificate.pfx", "000000");
+                        });
                     });
                     webBuilder.UseStartup<Startup>();
                 });
